@@ -1,0 +1,32 @@
+import type { IpdfManifest } from "./types";
+
+export const sampleManifest: IpdfManifest = {
+  ipdfVersion: "0.1",
+  title: "Harness Engineering",
+  source: "source.pdf",
+  primitiveDependencies: [
+    {
+      id: "org.ipdf.core",
+      version: "0.1.0",
+      sandbox: "declarative"
+    }
+  ],
+  scenes: [
+    {
+      id: "agent-loop",
+      page: 12,
+      primitives: [
+        { id: "prompt", type: "shape", label: "Prompt", x: 0.08, y: 0.45 },
+        { id: "llm", type: "shape", label: "LLM Call", x: 0.33, y: 0.45 },
+        { id: "execute", type: "shape", label: "Execute", x: 0.58, y: 0.45 },
+        { id: "observe", type: "shape", label: "Observe", x: 0.83, y: 0.45 }
+      ],
+      transitions: [
+        { from: "prompt", to: "llm", action: "trace", durationMs: 450 },
+        { from: "llm", to: "execute", action: "trace", durationMs: 450 },
+        { from: "execute", to: "observe", action: "trace", durationMs: 450 },
+        { from: "observe", to: "prompt", action: "trace", durationMs: 650 }
+      ]
+    }
+  ]
+};
