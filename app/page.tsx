@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { sampleManifest } from "@/lib/ipdf/sample";
+import { sampleManifest } from "../lib/ipdf/sample";
 
 const explanations = [
   "The harness assembles the prompt, source passage, and current document state.",
