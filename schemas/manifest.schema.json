@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipdf.dev/schemas/manifest.schema.json",
+  "title": "iPDF Manifest",
+  "type": "object",
+  "required": ["ipdfVersion", "title", "source", "scenes"],
+  "properties": {
+    "ipdfVersion": { "type": "string" },
+    "title": { "type": "string" },
+    "source": { "type": "string" },
+    "primitiveDependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "version"],
+        "properties": {
+          "id": { "type": "string" },
+          "version": { "type": "string" },
+          "source": { "type": "string" },
+          "integrity": { "type": "string" },
+          "sandbox": { "enum": ["declarative", "wasm", "native"] },
+          "fallback": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "scenes": { "type": "array" }
+  },
+  "additionalProperties": true
+}
